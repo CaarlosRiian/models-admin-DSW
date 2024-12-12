@@ -1,1 +1,5 @@
-<h1>Models</h1>
+<h1>Produtos:</h1>
+
+{% for produto in produtos %}
+    <h2><a href="/{{produto.cod_produto}}">{{ produto.nome_produto }}</a></h2>
+{% endfor %}
