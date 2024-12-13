@@ -7,6 +7,13 @@ class Categoria(models.Model):
     def __str__(self):
         return self.nome_categoria
 
+class Fornecedor(models.Model):
+    nome_fornecedor = models.CharField(max_length=255, null=False, blank=False)
+    cod_fornecedor = models.CharField(max_length=100, unique=True, blank=False, null=False)
+
+    def __str__(self):
+        return self.nome_fornecedor
+    
 class Produto(models.Model):
     nome_produto = models.CharField(max_length=255, null=False, blank=False)
     cod_produto = models.CharField(max_length=100, unique=True, blank=False, null=False)
@@ -15,17 +22,9 @@ class Produto(models.Model):
     qntd_estoque = models.IntegerField(null=False, blank=False)
     data_criacao = models.DateField(auto_now_add=True) 
     categorias = models.ManyToManyField(Categoria)
+    fornecer = models.ForeignKey(Fornecedor, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.nome_produto
-
-class Fornecedor(models.Model):
-    nome_fornecedor = models.CharField(max_length=255, null=False, blank=False)
-    cod_fornecedor = models.CharField(max_length=100, unique=True, blank=False, null=False)
-    fornecer = models.ForeignKey(Produto, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.nome_fornecedor
-    
 
     

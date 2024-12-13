@@ -1,5 +1,8 @@
 <h1>Produtos:</h1>
 
 {% for produto in produtos %}
-    <h2><a href="/{{produto.cod_produto}}">{{ produto.nome_produto }}</a></h2>
+    <h2><a href="/{{ produto.id }}">{{ produto.nome_produto }}</a></h2>
 {% endfor %}
+
+<a href="{% url 'listar_categorias' %}">Ir as Categorias</a>
+<a href="{% url 'listar_fornecedores' %}">Ir os Fornecedores</a>
