@@ -7,15 +7,19 @@
     text-align: center;
 }
 
+a {
+    text-decoration: none;
+}
+
 .produto-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);  /* 3 colunas de tamanho igual */
-    gap: 20px;  /* Espaço entre os itens */
+    grid-template-columns: repeat(3, 1fr);  
+    gap: 20px;  
     padding: 20px;
 }
 
 .produto-item {
-    border: 1px solid #ddd;  /* Adiciona uma borda */
+    border: 1px solid #ddd;  
     padding: 15px;
     background-color: #f9f9f9;
     border-radius: 8px;
@@ -53,5 +57,22 @@
 }
 
 .btn:hover {
+    background-color: #07488e;
+}
+
+.btn-filter {
+    background-color: #1b6bc0;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: block; 
+}
+
+.btn-filter:hover {
     background-color: #07488e;
 }
