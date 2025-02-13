@@ -3,6 +3,8 @@ from .forms import QuestionForm, FornecedorForm, CategoriaForm, ProdutoForm
 from django.views.generic import ListView, DetailView, CreateView
 from django.urls import reverse_lazy
 from .models import Produto, Categoria, Fornecedor
+from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.forms import UserCreationForm
 
 # CBV teste
 
@@ -43,3 +45,14 @@ class ProdutoCreateView(CreateView):
     form_class = ProdutoForm
     template_name = 'cadastrar_produto.html'
     success_url = reverse_lazy('index')
+
+class CustomLoginView(LoginView):
+    template_name = 'registration/login.html'
+
+class CustomLogoutView(LogoutView):
+    next_page = reverse_lazy('login')
+
+class UserRegisterView(CreateView):
+    form_class = UserCreationForm
+    template_name = 'registration/register.html'
+    success_url = reverse_lazy('login')
